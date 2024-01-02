@@ -39,16 +39,16 @@
         <script src="data/prom_build_1.js"></script>
         <script src="data/military_territory_2.js"></script>
         <script src="data/military_build_3.js"></script>
-        <script src="data/vzlotka_4.js"></script>
-        <script src="data/government_1_5.js"></script>
+        <script src="data/runway_vzlot_4.js"></script>
+        <script src="data/government_5.js"></script>
         <script src="data/energo_generator_teritorii_6.js"></script>
         <script src="data/energo_generator_point_7.js"></script>
         <script>
         var map = L.map('map', {
-            zoomControl:true, maxZoom:21, minZoom:1
-        }).fitBounds([[32.7055360098,13.9042890842],[65.9166293887,62.4669633842]]);
+            zoomControl:true, maxZoom:19, minZoom:1
+        }).fitBounds([[32.0294144019,13.9042890842],[66.5927509965,62.4669633842]]);
         var hash = new L.Hash(map);
-        map.attributionControl.addAttribution('<a href="РЗ" target="_blank">qgis2web</a>');
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var measureControl = new L.Control.Measure({
             primaryLengthUnit: 'meters',
             secondaryLengthUnit: 'kilometers',
@@ -59,7 +59,7 @@
         var bounds_group = new L.featureGroup([]);
         var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-            maxZoom: 21
+            maxZoom: 19
         });
         basemap0.addTo(map);
         function setBounds() {
@@ -187,7 +187,6 @@
             style: style_prom_teritorii_0_0,
         });
         bounds_group.addLayer(layer_prom_teritorii_0);
-        map.addLayer(layer_prom_teritorii_0);
         function pop_prom_build_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -300,7 +299,6 @@
             style: style_prom_build_1_0,
         });
         bounds_group.addLayer(layer_prom_build_1);
-        map.addLayer(layer_prom_build_1);
         function pop_military_territory_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -1227,7 +1225,7 @@
         });
         bounds_group.addLayer(layer_military_build_3);
         map.addLayer(layer_military_build_3);
-        function pop_vzlotka_4(feature, layer) {
+        function pop_runway_vzlot_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">id</th>\
@@ -1326,9 +1324,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_vzlotka_4_0() {
+        function style_runway_vzlot_4_0() {
             return {
-                pane: 'pane_vzlotka_4',
+                pane: 'pane_runway_vzlot_4',
                 opacity: 1,
                 color: 'rgba(0,229,254,1.0)',
                 dashArray: '',
@@ -1338,18 +1336,18 @@
                 fillOpacity: 0,
             }
         }
-        map.createPane('pane_vzlotka_4');
-        map.getPane('pane_vzlotka_4').style.zIndex = 404;
-        map.getPane('pane_vzlotka_4').style['mix-blend-mode'] = 'normal';
-        var layer_vzlotka_4 = new L.geoJson(json_vzlotka_4, {
+        map.createPane('pane_runway_vzlot_4');
+        map.getPane('pane_runway_vzlot_4').style.zIndex = 404;
+        map.getPane('pane_runway_vzlot_4').style['mix-blend-mode'] = 'normal';
+        var layer_runway_vzlot_4 = new L.geoJson(json_runway_vzlot_4, {
             attribution: '<a href=""></a>',
-            pane: 'pane_vzlotka_4',
-            onEachFeature: pop_vzlotka_4,
-            style: style_vzlotka_4_0,
+            pane: 'pane_runway_vzlot_4',
+            onEachFeature: pop_runway_vzlot_4,
+            style: style_runway_vzlot_4_0,
         });
-        bounds_group.addLayer(layer_vzlotka_4);
-        map.addLayer(layer_vzlotka_4);
-        function pop_government_1_5(feature, layer) {
+        bounds_group.addLayer(layer_runway_vzlot_4);
+        map.addLayer(layer_runway_vzlot_4);
+        function pop_government_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">id</th>\
@@ -1436,9 +1434,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_government_1_5_0() {
+        function style_government_5_0() {
             return {
-                pane: 'pane_government_1_5',
+                pane: 'pane_government_5',
                 shape: 'square',
                 radius: 4.0,
                 opacity: 1,
@@ -1452,23 +1450,23 @@
                 fillColor: 'rgba(133,117,239,1.0)',
             }
         }
-        map.createPane('pane_government_1_5');
-        map.getPane('pane_government_1_5').style.zIndex = 405;
-        map.getPane('pane_government_1_5').style['mix-blend-mode'] = 'normal';
-        var layer_government_1_5 = new L.geoJson(json_government_1_5, {
+        map.createPane('pane_government_5');
+        map.getPane('pane_government_5').style.zIndex = 405;
+        map.getPane('pane_government_5').style['mix-blend-mode'] = 'normal';
+        var layer_government_5 = new L.geoJson(json_government_5, {
             attribution: '<a href=""></a>',
-            pane: 'pane_government_1_5',
-            onEachFeature: pop_government_1_5,
+            pane: 'pane_government_5',
+            onEachFeature: pop_government_5,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_government_1_5_0(feature));
+                return L.shapeMarker(latlng, style_government_5_0(feature));
             },
         });
-        bounds_group.addLayer(layer_government_1_5);
-        map.addLayer(layer_government_1_5);
+        bounds_group.addLayer(layer_government_5);
+        map.addLayer(layer_government_5);
         function pop_energo_generator_teritorii_6(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -1770,7 +1768,7 @@
         });
         osmGeocoder.addTo(map);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/energo_generator_point_7.png" /> energo_generator_point': layer_energo_generator_point_7,'<img src="legend/energo_generator_teritorii_6.png" /> energo_generator_teritorii': layer_energo_generator_teritorii_6,'<img src="legend/government_1_5.png" /> government_1': layer_government_1_5,'<img src="legend/vzlotka_4.png" /> vzlotka': layer_vzlotka_4,'<img src="legend/military_build_3.png" /> military_build': layer_military_build_3,'<img src="legend/military_territory_2.png" /> military_territory': layer_military_territory_2,'<img src="legend/prom_build_1.png" /> prom_build': layer_prom_build_1,'<img src="legend/prom_teritorii_0.png" /> prom_teritorii': layer_prom_teritorii_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/energo_generator_point_7.png" /> energo_generator_point': layer_energo_generator_point_7,'<img src="legend/energo_generator_teritorii_6.png" /> energo_generator_teritorii': layer_energo_generator_teritorii_6,'<img src="legend/government_5.png" /> government': layer_government_5,'<img src="legend/runway_vzlot_4.png" /> runway_vzlot': layer_runway_vzlot_4,'<img src="legend/military_build_3.png" /> military_build': layer_military_build_3,'<img src="legend/military_territory_2.png" /> military_territory': layer_military_territory_2,'<img src="legend/prom_build_1.png" /> prom_build': layer_prom_build_1,'<img src="legend/prom_teritorii_0.png" /> prom_teritorii': layer_prom_teritorii_0,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>
