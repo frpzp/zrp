@@ -43,10 +43,13 @@
         <script src="data/government_5.js"></script>
         <script src="data/energo_generator_teritorii_6.js"></script>
         <script src="data/energo_generator_point_7.js"></script>
+        <script src="data/line_gas_8.js"></script>
+        <script src="data/builg_gas_9.js"></script>
+        <script src="data/point_gas_10.js"></script>
         <script>
         var map = L.map('map', {
-            zoomControl:true, maxZoom:19, minZoom:1
-        }).fitBounds([[32.0294144019,13.9042890842],[66.5927509965,62.4669633842]]);
+            zoomControl:true, maxZoom:21, minZoom:4
+        }).fitBounds([[54.9206565156,36.7714012053],[56.7513922531,39.806568349]]);
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var measureControl = new L.Control.Measure({
@@ -59,7 +62,7 @@
         var bounds_group = new L.featureGroup([]);
         var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-            maxZoom: 19
+            maxZoom: 21
         });
         basemap0.addTo(map);
         function setBounds() {
@@ -187,6 +190,7 @@
             style: style_prom_teritorii_0_0,
         });
         bounds_group.addLayer(layer_prom_teritorii_0);
+        map.addLayer(layer_prom_teritorii_0);
         function pop_prom_build_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -299,6 +303,7 @@
             style: style_prom_build_1_0,
         });
         bounds_group.addLayer(layer_prom_build_1);
+        map.addLayer(layer_prom_build_1);
         function pop_military_territory_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -1761,6 +1766,145 @@
         });
         bounds_group.addLayer(layer_energo_generator_point_7);
         map.addLayer(layer_energo_generator_point_7);
+        function pop_line_gas_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">substance</th>\
+                        <td>' + (feature.properties['substance'] !== null ? Autolinker.link(String(feature.properties['substance'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">operator</th>\
+                        <td>' + (feature.properties['operator'] !== null ? Autolinker.link(String(feature.properties['operator'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? Autolinker.link(String(feature.properties['name'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_line_gas_8_0() {
+            return {
+                pane: 'pane_line_gas_8',
+                opacity: 1,
+                color: 'rgba(53,76,179,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_line_gas_8');
+        map.getPane('pane_line_gas_8').style.zIndex = 408;
+        map.getPane('pane_line_gas_8').style['mix-blend-mode'] = 'normal';
+        var layer_line_gas_8 = new L.geoJson(json_line_gas_8, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_line_gas_8',
+            onEachFeature: pop_line_gas_8,
+            style: style_line_gas_8_0,
+        });
+        bounds_group.addLayer(layer_line_gas_8);
+        map.addLayer(layer_line_gas_8);
+        function pop_builg_gas_9(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">substance</th>\
+                        <td>' + (feature.properties['substance'] !== null ? Autolinker.link(String(feature.properties['substance'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">operator</th>\
+                        <td>' + (feature.properties['operator'] !== null ? Autolinker.link(String(feature.properties['operator'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? Autolinker.link(String(feature.properties['name'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_builg_gas_9_0() {
+            return {
+                pane: 'pane_builg_gas_9',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(121,121,192,1.0)',
+            }
+        }
+        map.createPane('pane_builg_gas_9');
+        map.getPane('pane_builg_gas_9').style.zIndex = 409;
+        map.getPane('pane_builg_gas_9').style['mix-blend-mode'] = 'normal';
+        var layer_builg_gas_9 = new L.geoJson(json_builg_gas_9, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_builg_gas_9',
+            onEachFeature: pop_builg_gas_9,
+            style: style_builg_gas_9_0,
+        });
+        bounds_group.addLayer(layer_builg_gas_9);
+        map.addLayer(layer_builg_gas_9);
+        function pop_point_gas_10(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">substation</th>\
+                        <td>' + (feature.properties['substation'] !== null ? Autolinker.link(String(feature.properties['substation'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">operator</th>\
+                        <td>' + (feature.properties['operator'] !== null ? Autolinker.link(String(feature.properties['operator'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? Autolinker.link(String(feature.properties['name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">descriptio</th>\
+                        <td>' + (feature.properties['descriptio'] !== null ? Autolinker.link(String(feature.properties['descriptio'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_point_gas_10_0() {
+            return {
+                pane: 'pane_point_gas_10',
+                shape: 'diamond',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(9,0,148,1.0)',
+            }
+        }
+        map.createPane('pane_point_gas_10');
+        map.getPane('pane_point_gas_10').style.zIndex = 410;
+        map.getPane('pane_point_gas_10').style['mix-blend-mode'] = 'normal';
+        var layer_point_gas_10 = new L.geoJson(json_point_gas_10, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_point_gas_10',
+            onEachFeature: pop_point_gas_10,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_point_gas_10_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_point_gas_10);
+        map.addLayer(layer_point_gas_10);
         var osmGeocoder = new L.Control.OSMGeocoder({
             collapsed: false,
             position: 'topright',
@@ -1768,7 +1912,7 @@
         });
         osmGeocoder.addTo(map);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/energo_generator_point_7.png" /> energo_generator_point': layer_energo_generator_point_7,'<img src="legend/energo_generator_teritorii_6.png" /> energo_generator_teritorii': layer_energo_generator_teritorii_6,'<img src="legend/government_5.png" /> government': layer_government_5,'<img src="legend/runway_vzlot_4.png" /> runway_vzlot': layer_runway_vzlot_4,'<img src="legend/military_build_3.png" /> military_build': layer_military_build_3,'<img src="legend/military_territory_2.png" /> military_territory': layer_military_territory_2,'<img src="legend/prom_build_1.png" /> prom_build': layer_prom_build_1,'<img src="legend/prom_teritorii_0.png" /> prom_teritorii': layer_prom_teritorii_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/point_gas_10.png" /> point_gas': layer_point_gas_10,'<img src="legend/builg_gas_9.png" /> builg_gas': layer_builg_gas_9,'<img src="legend/line_gas_8.png" /> line_gas': layer_line_gas_8,'<img src="legend/energo_generator_point_7.png" /> energo_generator_point': layer_energo_generator_point_7,'<img src="legend/energo_generator_teritorii_6.png" /> energo_generator_teritorii': layer_energo_generator_teritorii_6,'<img src="legend/government_5.png" /> government': layer_government_5,'<img src="legend/runway_vzlot_4.png" /> runway_vzlot': layer_runway_vzlot_4,'<img src="legend/military_build_3.png" /> military_build': layer_military_build_3,'<img src="legend/military_territory_2.png" /> military_territory': layer_military_territory_2,'<img src="legend/prom_build_1.png" /> prom_build': layer_prom_build_1,'<img src="legend/prom_teritorii_0.png" /> prom_teritorii': layer_prom_teritorii_0,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>
